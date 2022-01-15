@@ -4,15 +4,41 @@
   --black-color: #000;
   --primary-color: #06800f;
   --white-color: #fff;
+  --white-color-2: #f3f3f3;
   --red-color: #bd0513;
+  --background-color-1: #ec88b9;
+  --background-color-2: #fcdfeb;
+  --background-circle: #eac9d9;
 }
 
+@font-face {
+  font-family: lovepen;
+  src: url(/assest/font/VL_Lovepen\ Regular.otf);
+  font-weight: bold;
+}
+* {
+  box-sizing: border-box;
+}
 body {
   font-size: 10px;
   font-family: "Open Sans", sans-serif;
 }
+.row > * {
+  margin: 0;
+  padding: 0;
+}
+
 .row {
   margin: 0;
+  padding: 0;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+.wrapper {
+  /* width: 1200px; */
+  margin: auto;
 }
 
 .line {
@@ -94,6 +120,22 @@ body {
   line-height: 1.6;
 }
 
+.ladi-headline3-a {
+  color: var(--black-color);
+  font-size: 23px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.ladi-headline4 {
+  font-family: "Be Vietnam Pro", sans-serif;
+  color: var(--headline1-color);
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
 .button {
   background-color: var(--primary-color);
   color: var(--white-color);
@@ -142,12 +184,14 @@ body {
   margin: 15px 0;
 }
 
-.section-3 .title {
+.section-3,
+.section-5 .title {
   color: var(--primary-color);
 }
 
 .intro-element {
   margin: auto;
+  /* width: 1200px; */
 }
 
 .intro-element > .row {
@@ -163,7 +207,8 @@ body {
   margin-bottom: 20px;
   text-transform: unset;
 }
-.list-info {
+.list-info,
+.info-list-item {
   width: 100%;
   display: flex;
   gap: 10px;
@@ -189,9 +234,227 @@ body {
   object-fit: cover;
 }
 
+.section-4 {
+  padding: 40px 40px;
+}
 
-@media (min-width:1200px) {
-    .info-image {
-        height: 450px;
-    }
+.ladi-card-wrap {
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.ladi-card {
+  background-color: var(--background-color-2);
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  overflow: hidden;
+  /* height: 516px; */
+  display: flex;
+  flex-direction: column;
+}
+
+.ladi-card::after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border-radius: 50rem;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  background-color: var(--background-circle);
+}
+.ladi-card img {
+  margin: 20px;
+  border-radius: 10px;
+  position: relative;
+  height: 97px;
+  width: 115px;
+  z-index: 10;
+  object-fit: cover;
+}
+
+.ladi-card > h5 {
+  font-size: 16px;
+  line-height: 1.5;
+  word-spacing: 1px;
+  width: 80%;
+  margin-left: 20px;
+  height: 190px;
+  max-height: 200px; /* Fallback số dòng bạn muốn giới hạn */
+}
+.ladi-card h3 {
+  font-family: "lovepen";
+  color: #06800f;
+  font-size: 50px;
+  margin: 10px 0 0 20px;
+  line-height: 1.7;
+}
+.ladi-card .bottom-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.ladi-card .bottom-card h5 {
+  font-style: italic;
+  margin-bottom: 20px;
+  line-height: 35px;
+}
+.ladi-card .bottom-card i {
+  font-size: 30px;
+  color: var(--background-color-1);
+}
+
+.intro-mobile-info {
+  margin: auto;
+  align-items: center;
+}
+
+.intro-mobile-info img {
+  height: 700px;
+  object-fit: cover;
+}
+
+.info-list-group {
+  margin: 50px 0;
+}
+
+.service {
+  background-color: var(--white-color-2);
+  padding: 50px 0;
+}
+
+.service-wrap {
+  margin-top: 49px;
+}
+
+.service-item {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  margin: auto;
+}
+
+.service-item .headding {
+  /* line-height: 20px; */
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.service-item i {
+  color: var(--primary-color);
+  font-size: 20px;
+  position: relative;
+  top: 4px;
+}
+
+.service-item .info {
+  height: 100px;
+  max-height: 130px;
+}
+
+.service-item .info p {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@media (min-width: 1200px) {
+  .info-image {
+    height: 450px;
+  }
+}
+@media (max-width: 1030px) {
+  .info-image {
+    width: 100%;
+    height: 311px;
+    object-fit: cover;
+  }
+  .service-item .info {
+    height: 130px;
+    max-height: 130px;
+  }
+  .ladi-card > h5 {
+    height: 220px;
+    max-height: 220px;
+  }
+  .info-list {
+    padding-right: 40px;
+  }
+}
+@media (max-width: 770px) {
+  .category-wrap {
+    width: 90%;
+  }
+  .section-4 {
+    padding: 40px 20px;
+  }
+  .ladi-card {
+    width: 32%;
+  }
+  .ladi-card > h5 {
+    height: 240px;
+    max-height: 240px;
+  }
+  .ladi-card .bottom-card h5 {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .service-item {
+    margin-top: 38px;
+  }
+}
+
+@media (max-width: 500px) {
+  .ladi-headline1-a {
+    font-size: 23px;
+  }
+  .ladi-headline1-b {
+    font-size: 23px;
+  }
+  .ladi-headline2 {
+    font-size: 50px;
+  }
+  .button {
+    font-size: 18px;
+  }
+  .image-intro_app {
+    height: 201px;
+  }
+  .intro-element .title {
+    font-size: 19px;
+    /* margin-left: 20px; */
+    padding: 0 20px;
+  }
+  .list-info {
+    padding: 0 20px;
+  }
+  .ladi-card {
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .ladi-card > h5 {
+    height: 170px;
+    max-height: 240px;
+  }
+  .info-list {
+    padding: 20px;
+  }
+  .info-list-group {
+    margin: 30px 0;
+  }
+  .intro-mobile-info img {
+    height: 600px;
+    object-fit: cover;
+  }
+  .service-wrap {
+    margin-top: 0;
+  }
 }
